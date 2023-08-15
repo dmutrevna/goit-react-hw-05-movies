@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 
 import { fetchMovieDetails } from 'service/Api';

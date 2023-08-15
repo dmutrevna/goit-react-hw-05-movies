@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const MoviesSearchFrom = ({ handleSubmit }) => {
   const [value, setValue] = useState('');
@@ -19,6 +20,10 @@ const MoviesSearchFrom = ({ handleSubmit }) => {
       <button type="submit">Search</button>
     </form>
   );
+};
+
+MoviesSearchFrom.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default MoviesSearchFrom;
