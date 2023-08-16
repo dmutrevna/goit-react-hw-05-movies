@@ -3,6 +3,14 @@ import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 
 import { fetchMovieDetails } from 'service/Api';
 import { useHttp } from 'service/useHttp';
+import noFoundImage from 'components/Image/image_not_found.jpg';
+import {
+  MovieDescriptionContainer,
+  MovieDescriptionStyled,
+  MovieDetailsContainer,
+  MovieImageStyled,
+  MovieListCast,
+} from './MovieDetails.styled';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -18,17 +26,23 @@ const MovieDetails = () => {
 
   return (
     <>
-      <>
-        <Link to={location.state?.from || '/'}>&#8592; Go back</Link>
-        <div>
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+      <MovieDetailsContainer>
+        <Link to={location.state?.from || '/'}>
+          <button> &#8592; Go back</button>
+        </Link>
+        <MovieDescriptionContainer>
+          <MovieImageStyled
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                : `${noFoundImage}`
+            }
             alt={title}
             width="200"
           />
-          <div>
+          <MovieDescriptionStyled>
             <h2>
-              {title} {release_date}
+              {title} ({new Date(release_date).getFullYear()})
             </h2>
             <p>User score: {userScore}%</p>
             <h3>Overview</h3>
@@ -38,23 +52,23 @@ const MovieDetails = () => {
               {genres &&
                 genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
             </ul>
-          </div>
-        </div>
+          </MovieDescriptionStyled>
+        </MovieDescriptionContainer>
 
         <hr />
         <div>
           <h4>Additional information</h4>
           <ul>
-            <li>
+            <MovieListCast>
               <Link to="cast">Cast</Link>
-            </li>
-            <li>
+            </MovieListCast>
+            <MovieListCast>
               <Link to="reviews">Reviews</Link>
-            </li>
+            </MovieListCast>
           </ul>
         </div>
         <Outlet />
-      </>
+      </MovieDetailsContainer>
     </>
   );
 };

@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import {
+  SearchButton,
+  SearchForm,
+  SearchInput,
+} from './MoviesSearchFrom.styled';
 
 const MoviesSearchFrom = ({ handleSubmit }) => {
   const [value, setValue] = useState('');
@@ -15,10 +20,10 @@ const MoviesSearchFrom = ({ handleSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
-      <input type="text" value={value} onChange={handleChange} />
-      <button type="submit">Search</button>
-    </form>
+    <SearchForm onSubmit={handleFormSubmit}>
+      <SearchInput type="text" value={value} onChange={handleChange} />
+      <SearchButton type="submit">Search</SearchButton>
+    </SearchForm>
   );
 };
 

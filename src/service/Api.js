@@ -22,6 +22,7 @@ export const fetchSearchMovies = async query => {
       language: 'en-US',
     },
   });
+
   return response.data.results;
 };
 

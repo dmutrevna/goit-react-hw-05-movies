@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { fetchMovieCredits } from 'service/Api';
 import { useHttp } from 'service/useHttp';
 import noFoundImage from './../Image/image_not_found.jpg';
+import { MovieCastList } from './MovieCast.styled';
 
 const MovieCast = () => {
   const { movieId } = useParams();
@@ -16,7 +17,7 @@ const MovieCast = () => {
 
   return (
     <div>
-      <ul>
+      <MovieCastList>
         {casts &&
           casts.map(cast => (
             <li key={cast.id}>
@@ -28,12 +29,13 @@ const MovieCast = () => {
                 }
                 alt={cast.name}
                 width="150"
+                height="225"
               />
               <p>{cast.name}</p>
               <p>Character: {cast.character}</p>
             </li>
           ))}
-      </ul>
+      </MovieCastList>
     </div>
   );
 };

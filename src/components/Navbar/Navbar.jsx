@@ -1,14 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { MovieNavbarContainer, MoviesNavLinkStyled } from './Navbar.styled';
 
 const Navbar = () => {
   return (
-    <div>
-      <nav>
+    <MovieNavbarContainer>
+      <MoviesNavLinkStyled>
         <NavLink to="/">Home</NavLink> {}
         <NavLink to="/movies">Movies</NavLink>
-      </nav>
-    </div>
+      </MoviesNavLinkStyled>
+    </MovieNavbarContainer>
   );
 };
 
