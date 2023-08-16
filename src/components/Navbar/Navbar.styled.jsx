@@ -22,5 +22,8 @@ export const MoviesNavLinkStyled = styled.nav`
       filter: drop-shadow(0px 6px 6px rgba(0, 0, 0, 0.25));
       color: gray;
     }
+    &.active {
+      color: gray;
+    }
   }
 `;
