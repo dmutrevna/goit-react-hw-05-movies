@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
-// import Global from 'styles/globalStyles';
+import { GlobalStyles } from 'components/Styles/Global';
+import { ThemeProvider } from 'styled-components';
+import { light } from 'components/Theme/Theme.styled';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter basename="/goit-react-hw-05-movies">
-    <App />
-    {/* <Global /> */}
+    <ThemeProvider theme={light}>
+      <App />
+      <GlobalStyles />
+    </ThemeProvider>
   </BrowserRouter>
 );

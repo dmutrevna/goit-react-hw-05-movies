@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const MovieNavbarContainer = styled.div`
   background-color: rgb(225 217 217);
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const MoviesNavLinkStyled = styled.nav`
